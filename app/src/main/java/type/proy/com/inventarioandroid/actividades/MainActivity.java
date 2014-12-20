@@ -1,9 +1,11 @@
-package type.proy.com.inventarioandroid;
+package type.proy.com.inventarioandroid.actividades;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import type.proy.com.inventarioandroid.R;
 
 
 public class MainActivity extends ActionBarActivity {
