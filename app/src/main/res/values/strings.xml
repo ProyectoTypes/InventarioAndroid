@@ -13,5 +13,8 @@
     <string name="btnSoporte">Soporte Tecnico</string>
     <string name="btnComputadoras">Computadoras</string>
     <string name="btnEstadisticas">Estadisticas</string>
+    <string name="title_activity_abm_soporte">AbmSoporteActivity</string>
+    <string name="btnListarSoporte">Ver Todos</string>
+    <string name="btnCrearSoporte">Ingresar Nuevo Soporte</string>
 
 </resources>
