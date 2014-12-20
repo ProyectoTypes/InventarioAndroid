@@ -5,16 +5,16 @@ import java.util.List;
 /**
  * Created by munoz on 20/12/14.
  */
-public class RestLink {
+public class RestLinks {
 
-    List<RestLink> links;
+    List<RestLinks> links;
     Object extensions;
 
-    public List<RestLink> getLinks() {
+    public List<RestLinks> getLinks() {
         return links;
     }
 
-    public void setLinks(List<RestLink> links) {
+    public void setLinks(List<RestLinks> links) {
         this.links = links;
     }
 
