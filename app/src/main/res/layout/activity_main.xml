@@ -13,7 +13,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="86dp" />
+        android:layout_marginTop="86dp"
+        android:clickable="true"
+        android:onClick="onClickBtnSoporte"
+        />
 
     <Button
         android:layout_width="match_parent"
@@ -23,7 +26,9 @@
         android:layout_below="@+id/btnSoporte"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="37dp" />
+        android:layout_marginTop="37dp"
+        android:clickable="true"
+        android:onClick="onClickBtnComputadora"/>
 
     <Button
         android:layout_width="match_parent"
@@ -32,5 +37,7 @@
         android:id="@+id/btnEstadisticas"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:onClick="onClickBtnEstadisticas"/>
 </RelativeLayout>
