@@ -14,7 +14,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/txtContrasena"
         android:layout_alignEnd="@+id/txtContrasena"
-        android:layout_marginBottom="52dp" />
+        android:layout_marginBottom="52dp"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,6 +74,7 @@
         android:id="@+id/btnRegistrar"
         android:layout_above="@+id/btnLogin"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:clickable="true" />
 
 </RelativeLayout>
