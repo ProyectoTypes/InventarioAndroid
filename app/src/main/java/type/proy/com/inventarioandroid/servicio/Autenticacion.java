@@ -63,6 +63,29 @@ public class Autenticacion {
         this.guardar = guardar;
     }
 
+    public String getUri(){
+
+        String servidor = getServidor();
+        String puerto = getPuerto();
+        String directorio = getDirectorio();
+        if (servidor != null) {
+            if (servidor.isEmpty()) {
+                return "";
+            }
+            if (puerto.isEmpty()){
+                puerto = "8080";
+            }
+
+            if (directorio.isEmpty()){
+                directorio = "/restful";
+            }
+
+            String url = "http://" + servidor + ":" + puerto + directorio + "/";
+
+            return url;
+        }
+        return "";
+    }
 
 
 }
