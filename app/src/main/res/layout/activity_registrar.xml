@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Url Servidor"
+        android:text="@string/lblUrlServidor"
         android:id="@+id/lblUrlServidor" />
 
     <EditText
@@ -24,24 +24,24 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Puerto"
-        android:id="@+id/lblPuerto" />
+        android:id="@+id/lblUsuario" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPuerto" />
+        android:id="@+id/txtUsuario" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Directorio"
-        android:id="@+id/lblDirectorio" />
+        android:id="@+id/lblContrasena" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtDirectorio" />
+        android:id="@+id/txtContrasena" />
 
     <Button
         android:layout_width="match_parent"

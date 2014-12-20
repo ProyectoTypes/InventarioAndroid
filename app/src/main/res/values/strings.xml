@@ -19,5 +19,6 @@
     <string name="title_activity_soporte">SoporteActivity</string>
     <string name="lblSoporte">SOPORTE</string>
     <string name="title_activity_registrar">RegistrarActivity</string>
+    <string name="lblUrlServidor">Url Servidor</string>
 
 </resources>

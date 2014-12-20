@@ -30,6 +30,8 @@ public class AutenticacionRepositorio {
     {
         Autenticacion autenticacion = new Autenticacion();
         String json = leerJSON(activity);
+        Log.v("JSON", "json********** "+json);
+
         try
         {
             JSONObject obj      = new JSONObject(json);
@@ -77,6 +79,8 @@ public class AutenticacionRepositorio {
             }
 
             json = sb.toString();
+            Log.v("JSON", "JSON: "+json);
+
 
         } catch (FileNotFoundException e) {
             json =  "{ " +
