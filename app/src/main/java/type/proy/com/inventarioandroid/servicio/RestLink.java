@@ -1,53 +1,28 @@
 package type.proy.com.inventarioandroid.servicio;
 
+import java.util.List;
+
 /**
  * Created by munoz on 20/12/14.
  */
 public class RestLink {
 
-    private String rel;
-    private String href;
-    private String method;
-    private String type;
-    private String title;
+    List<RestLink> links;
+    Object extensions;
 
-    public String getTitle() {
-        return title;
+    public List<RestLink> getLinks() {
+        return links;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLinks(List<RestLink> links) {
+        this.links = links;
     }
 
-    public String getRel() {
-        return rel;
+    public Object getExtensions() {
+        return extensions;
     }
 
-    public void setRel(String rel) {
-        this.rel = rel;
-    }
-
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setExtensions(Object extensions) {
+        this.extensions = extensions;
     }
 }
