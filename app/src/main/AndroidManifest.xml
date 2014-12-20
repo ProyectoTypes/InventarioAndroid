@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".actividades.AbmSoporteActivity"
+            android:name=".actividades.soporte.AbmSoporteActivity"
             android:label="@string/title_activity_abm_soporte" >
             <intent-filter>
                 <action android:name="android.intent.action.ADMINISTRAR_SOPORTE" />
@@ -36,10 +36,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".dom.SoporteActivity"
+            android:name=".actividades.soporte.SoporteActivity"
             android:label="@string/title_activity_soporte" >
             <intent-filter>
-                <action android:name="android.intent.action.VER_SOPORTE" />
+                <action android:name="android.intent.action.VER_SOPORTES" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
