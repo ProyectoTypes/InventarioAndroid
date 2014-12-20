@@ -189,7 +189,7 @@ public class LoginActivity extends ActionBarActivity {
         protected RestLink doInBackground(Void... params) {
             try {
 //Services services = null;
-                //Log.v("ingresando User y Pass", user + " : " + pass);
+                Log.v("ingresando User y Pass", autenticacion.getUri());
                 // Set the username and password for creating a Basic Auth request
                 HttpAuthentication authHeader = new HttpBasicAuthentication(autenticacion.getUsuario(), autenticacion.getPassword());
                 HttpHeaders requestHeaders = new HttpHeaders();
