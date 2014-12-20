@@ -55,7 +55,7 @@
         android:layout_below="@+id/lblDirectorio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:inputType="text" />
+        android:inputType="textPassword" />
 
     <CheckBox
         android:layout_width="wrap_content"
