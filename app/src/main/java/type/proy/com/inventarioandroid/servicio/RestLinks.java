@@ -7,16 +7,15 @@ import java.util.List;
  */
 public class RestLinks {
 
-    List<RestLinks> links;
-    Object extensions;
-
-    public List<RestLinks> getLinks() {
+    private List<RestLink> links;
+    public List<RestLink> getLinks() {
         return links;
     }
 
-    public void setLinks(List<RestLinks> links) {
+    public void setLinks(List<RestLink> links) {
         this.links = links;
     }
+    private Object extensions;
 
     public Object getExtensions() {
         return extensions;
