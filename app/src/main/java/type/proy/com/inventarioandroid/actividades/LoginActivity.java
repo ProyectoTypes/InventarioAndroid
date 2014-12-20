@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,16 +36,13 @@ public class LoginActivity extends ActionBarActivity {
         AutenticacionRepositorio autenticacionRepositorio = new AutenticacionRepositorio();
         autenticacion = autenticacionRepositorio.datosAutenticacion(this);
         //Chequeamos si los valores son nulos, habilitar boton Registrarse y deshabilitar login.Viceversa
-        if(!autenticacion.getUsuario().isEmpty())
+        if(!autenticacion.getUri().isEmpty())
         {
-            btnRegistrar.setEnabled(true);
-            btnRegistrar.setText("Modificar Url");
+            btnRegistrar.setText("Configurar URL");
             btnLogin.setEnabled(true);
         }
         else
         {
-            usuario.setText("NO LOGIN. NO HAY DATOS");
-            btnRegistrar.setEnabled(true);
             btnLogin.setEnabled(false);
         }
 
@@ -58,11 +56,14 @@ public class LoginActivity extends ActionBarActivity {
     public void onClickBtnRegistrar(View view)
     {
         final Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
-        Intent intent = new Intent("android.intent.action.REGISTRAR_DATOS");
+        Intent intent = new Intent("android.intent.action.REGISTRAR_URL");
+        AutenticacionRepositorio autenticacionRepositorio = new AutenticacionRepositorio();
+        autenticacion = autenticacionRepositorio.datosAutenticacion(this);
         intent.putExtra("servidor", autenticacion.getServidor());
         intent.putExtra("puerto", autenticacion.getPuerto());
         intent.putExtra("directorio", autenticacion.getDirectorio());
-        startActivity(intent);
+        startActivityForResult( intent,1 );
+
 
     }
 
@@ -98,10 +99,30 @@ public class LoginActivity extends ActionBarActivity {
         intent.putExtra("contrasena", autenticacion.getPassword().toString());
 
         startActivity(intent);
-        this.toString("Operación Exitosa");
+
 
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        final Button btnLogin = (Button) findViewById(R.id.btnLogin);
+        final Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
+
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+               btnLogin.setEnabled(true);
+                btnRegistrar.setText("Configurar URL");
+
+                Log.v("*******************", "OK devuelve true : resultCode" +resultCode);
+
+            }
+            if (resultCode == RESULT_CANCELED) {
+                btnLogin.setEnabled(false);
+                btnRegistrar.setText("Registrar URL");
+                Log.v("*******************", "NO devuelve false : resultCode" +resultCode);
+
+            }
+        }
+    }
     private void toString(CharSequence text) {
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_LONG;
