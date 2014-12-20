@@ -9,5 +9,6 @@
     <string name="lblContrasena">Contraseña</string>
     <string name="ckbGuardarContrasena">Guardar Contraseña</string>
     <string name="btnRegistrar">Registrarse</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>
