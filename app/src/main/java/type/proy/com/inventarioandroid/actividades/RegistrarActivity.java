@@ -51,8 +51,16 @@ public class RegistrarActivity extends ActionBarActivity {
                 autenticar.setPuerto(txtPuerto.getText().toString());
                 autenticar.setDirectorio(txtDirectorio.getText().toString());
                 autenticacionRepositorio.guardarDatosAutenticacion(activity, autenticar);
-
-                finish();
+                Intent returnIntent = new Intent();
+                if(!autenticar.getServidor().isEmpty()) {
+                    returnIntent.putExtra("login", true);
+                    setResult(RESULT_OK);
+                }
+                else {
+                    returnIntent.putExtra("login", false);
+                    setResult(RESULT_CANCELED);
+                }
+                    finish();
             }
         });
     }
