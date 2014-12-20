@@ -21,8 +21,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AbmSoporteActivity"
+            android:name=".actividades.AbmSoporteActivity"
             android:label="@string/title_activity_abm_soporte" >
+        </activity>
+        <activity
+            android:name=".dom.SoporteActivity"
+            android:label="@string/title_activity_soporte" >
         </activity>
     </application>
 

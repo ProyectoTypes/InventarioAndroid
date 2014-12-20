@@ -1,24 +1,26 @@
-package type.proy.com.inventarioandroid;
+package type.proy.com.inventarioandroid.dom;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import type.proy.com.inventarioandroid.R;
 
-public class AbmSoporteActivity extends ActionBarActivity {
+
+public class SoporteActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abm_soporte);
+        setContentView(R.layout.activity_soporte);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_abm_soporte, menu);
+        getMenuInflater().inflate(R.menu.menu_soporte, menu);
         return true;
     }
 

@@ -16,5 +16,7 @@
     <string name="title_activity_abm_soporte">AbmSoporteActivity</string>
     <string name="btnListarSoporte">Ver Todos</string>
     <string name="btnCrearSoporte">Ingresar Nuevo Soporte</string>
+    <string name="title_activity_soporte">SoporteActivity</string>
+    <string name="lblSoporte">SOPORTE</string>
 
 </resources>
