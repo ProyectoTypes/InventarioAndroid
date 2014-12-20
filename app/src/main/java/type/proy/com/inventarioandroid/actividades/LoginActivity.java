@@ -1,11 +1,13 @@
 package type.proy.com.inventarioandroid.actividades;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -17,7 +19,7 @@ import type.proy.com.inventarioandroid.servicio.AutenticacionRepositorio;
 
 
 public class LoginActivity extends ActionBarActivity {
-
+    private Autenticacion autenticacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.v("onCreate", "INICIANDO");
@@ -28,24 +30,18 @@ public class LoginActivity extends ActionBarActivity {
         //Creando instancias de los componentes del activity.
         final EditText usuario = (EditText) findViewById(R.id.txtUsuario);
         final EditText pass = (EditText) findViewById(R.id.txtContrasena);
-        final CheckBox ckbGuardarPass = (CheckBox) findViewById(R.id.ckbContrasena);
         final Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
 
         //Obtenemos los valores del datosAutenticacion.json en una instancia de Autenticacion.
         AutenticacionRepositorio autenticacionRepositorio = new AutenticacionRepositorio();
-        Autenticacion autenticacion = autenticacionRepositorio.autenticar(this);
-        //Chequeamos si los valores son nulos, habilitar boton Registrarse y deshabilitar login. Registrarse muestra nueva ventana.
-        //Si los valores no son nulos, habilitar login y deshabilitar Registrarse. Login muestra ventana main.
-        if(!autenticacion.getUsuario().isEmpty() && !autenticacion.getPassword().isEmpty())
+        autenticacion = autenticacionRepositorio.autenticar(this);
+        //Chequeamos si los valores son nulos, habilitar boton Registrarse y deshabilitar login.Viceversa
+        if(!autenticacion.getUsuario().isEmpty())
         {
-            Log.v("onCreate", "----------"+ autenticacion.getUsuario() +"---------------");
-            Log.v("onCreate", "----------"+ autenticacion.getPassword() +"---------------");
-            btnRegistrar.setEnabled(false);
+            btnRegistrar.setEnabled(true);
+            btnRegistrar.setText("Modificar Url");
             btnLogin.setEnabled(true);
-            usuario.setText("habria que permitir cambiar datos.");
-
-
         }
         else
         {
@@ -54,9 +50,61 @@ public class LoginActivity extends ActionBarActivity {
             btnLogin.setEnabled(false);
         }
 
+    }
 
+    /**
+     * Muestra un nuevo activity en donde se puedan ingresar los datos de registro, mas
+     * la url al restful.
+     * @param view
+     */
+    public void onClickBtnRegistrar(View view)
+    {
+        int mod = 0;
+        final Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
+        if(btnRegistrar.getText().toString().toLowerCase().equals("Modificar Url".toLowerCase()))
+            mod =1;
+        Intent intent = new Intent("android.intent.action.REGISTRAR_DATOS");
+        intent.putExtra("modificar", mod);
+        startActivity(intent);
 
     }
+
+    /**
+     * Muestra el activity Main.
+     * @param view
+     */
+    public void onClickBtnLoguearse(View view)
+    {
+        final CheckBox ckbGuardarPass = (CheckBox) findViewById(R.id.ckbContrasena);
+        Autenticacion nuevaAutenticacion = new Autenticacion();
+        nuevaAutenticacion.setUsuario(autenticacion.getUsuario());
+        nuevaAutenticacion.setDirectorio(autenticacion.getDirectorio());
+        nuevaAutenticacion.setPuerto(autenticacion.getPuerto());
+        nuevaAutenticacion.setServidor(autenticacion.getServidor());
+        if(!ckbGuardarPass.isChecked())
+        {
+            nuevaAutenticacion.setPassword("");
+            nuevaAutenticacion.setGuardar(false);
+
+        }
+        else {
+            nuevaAutenticacion.setPassword(autenticacion.getPassword());
+            nuevaAutenticacion.setGuardar(true);
+        }
+        AutenticacionRepositorio autenticacionRepositorio = new AutenticacionRepositorio();
+        autenticacionRepositorio.guardarDatosAutenticacion(this,nuevaAutenticacion);
+
+        Intent intent = new Intent("android.intent.action.MAIN");
+
+        intent.putExtra("url", autenticacion.getUri());
+        intent.putExtra("user", autenticacion.getUsuario());
+        intent.putExtra("pass", autenticacion.getPassword().toString());
+
+        startActivity(intent);
+        this.toString("Operación Exitosa");
+
+    }
+
     private void toString(CharSequence text) {
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_LONG;
