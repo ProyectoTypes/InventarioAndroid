@@ -28,12 +28,14 @@ import java.util.concurrent.ExecutionException;
 import type.proy.com.inventarioandroid.R;
 import type.proy.com.inventarioandroid.servicio.Autenticacion;
 import type.proy.com.inventarioandroid.servicio.AutenticacionRepositorio;
-import type.proy.com.inventarioandroid.servicio.RestLink;
+import type.proy.com.inventarioandroid.servicio.RestLinks;
 
 
 public class LoginActivity extends ActionBarActivity {
     private Autenticacion autenticacion;
     private String error="";
+    private String contrasena = "";
+    private String user="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,8 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
 
         //Creando instancias de los componentes del activity.
-        final EditText usuario = (EditText) findViewById(R.id.txtPuerto);
-        final EditText pass = (EditText) findViewById(R.id.txtDirectorio);
+        final EditText usuario = (EditText) findViewById(R.id.txtUsuario);
+        final EditText pass = (EditText) findViewById(R.id.txtContrasena);
         final Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
         final CheckBox ckbGuardarPass = (CheckBox) findViewById(R.id.ckbContrasena);
@@ -55,7 +57,8 @@ public class LoginActivity extends ActionBarActivity {
         //Llenamos los txtbox con los datos guardados en el archivo
         usuario.setText(autenticacion.getUsuario());
         pass.setText(autenticacion.getPassword());
-        ckbGuardarPass.setChecked(autenticacion.getGuardar());
+        //ckbGuardarPass.setChecked(autenticacion.getGuardar());
+        ckbGuardarPass.setChecked(true);
         //Chequeamos si los valores son nulos, habilitar boton Registrarse y deshabilitar login.Viceversa
         if(!autenticacion.getUri().isEmpty())
         {
@@ -94,10 +97,10 @@ public class LoginActivity extends ActionBarActivity {
      */
     public void onClickBtnLoguearse(View view)
     {
-        final EditText usuario = (EditText) findViewById(R.id.txtPuerto);
-        final EditText pass = (EditText) findViewById(R.id.txtDirectorio);
+        final EditText usuario = (EditText) findViewById(R.id.txtUsuario);
+        final EditText pass = (EditText) findViewById(R.id.txtContrasena);
         final CheckBox ckbGuardarPass = (CheckBox) findViewById(R.id.ckbContrasena);
-        Autenticacion nuevaAutenticacion = new Autenticacion();
+
         if (usuario.getText().toString().isEmpty()){
 
             generarAlerta("El campo \"usuario\" no puede estar en blanco");
@@ -111,6 +114,9 @@ public class LoginActivity extends ActionBarActivity {
         }
 
         autenticacion.setUsuario(usuario.getText().toString());
+        user = usuario.getText().toString();
+        contrasena= pass.getText().toString();
+
         if(!ckbGuardarPass.isChecked())
         {
             autenticacion.setPassword("");
@@ -123,7 +129,7 @@ public class LoginActivity extends ActionBarActivity {
         }
         //check connection
 
-        RestLink restLinks= null;
+        RestLinks restLinks= null;
         try {
             restLinks = new verificarLoginThread().execute().get();
         } catch (InterruptedException e) {
@@ -137,9 +143,9 @@ public class LoginActivity extends ActionBarActivity {
             return;
         }
         AutenticacionRepositorio autenticacionRepositorio = new AutenticacionRepositorio();
-        autenticacionRepositorio.guardarDatosAutenticacion(this,nuevaAutenticacion);
+        autenticacionRepositorio.guardarDatosAutenticacion(this,autenticacion);
 
-        Intent intent = new Intent("android.intent.action.MAIN");
+        Intent intent = new Intent("android.intent.action.MAINPPAL");
 
         intent.putExtra("url", autenticacion.getUri());
         intent.putExtra("usuario", autenticacion.getUsuario());
@@ -184,32 +190,29 @@ public class LoginActivity extends ActionBarActivity {
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }
-    private class verificarLoginThread  extends AsyncTask<Void, Void, RestLink> {
+    private class verificarLoginThread  extends AsyncTask<Void, Void, RestLinks> {
         @Override
-        protected RestLink doInBackground(Void... params) {
+        protected RestLinks doInBackground(Void... params) {
             try {
 //Services services = null;
-                Log.v("ingresando User y Pass", autenticacion.getUri());
+                Log.v("ingresando User y Pass", autenticacion.getUri()+"?user="+autenticacion.getUsuario()+"&pass="+contrasena);
                 // Set the username and password for creating a Basic Auth request
-                HttpAuthentication authHeader = new HttpBasicAuthentication(autenticacion.getUsuario(), autenticacion.getPassword());
+                HttpAuthentication authHeader = new HttpBasicAuthentication(autenticacion.getUsuario(), contrasena);
                 HttpHeaders requestHeaders = new HttpHeaders();
                 requestHeaders.setAuthorization(authHeader);
                 HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
 
-                Log.v("ingresando URL",autenticacion.getUri());
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
                 // Make the HTTP GET request to the Basic Auth protected URL
 
-                ResponseEntity<RestLink> response = null;
-
-                response = restTemplate.exchange(autenticacion.getUri(), HttpMethod.GET, requestEntity, RestLink.class);
-
+                ResponseEntity<RestLinks> response = null;
+                response = restTemplate.exchange(autenticacion.getUri(), HttpMethod.GET, requestEntity, RestLinks.class);
 
                 //return response.getBody();
 
-                RestLink restLinks = response.getBody();
+                RestLinks restLinks = response.getBody();
 
                 Log.v("leido", restLinks.getLinks().size()+"");
 
@@ -222,7 +225,7 @@ public class LoginActivity extends ActionBarActivity {
                 } else {
                     error = "No se puede acceder al servidor. Verifique la dirección.";
                 }
-                Log.e("Error", "Error de conexion");
+                Log.e("Error", "Error de conexion"+e.getMessage());
 
             }
             return null;
