@@ -26,7 +26,7 @@ public class AutenticacionRepositorio {
      * @param activity
      * @return
      */
-    public Autenticacion autenticar(Activity activity)
+    public Autenticacion datosAutenticacion(Activity activity)
     {
         Autenticacion autenticacion = new Autenticacion();
         String json = leerJSON(activity);

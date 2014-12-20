@@ -12,8 +12,8 @@
         android:text="@string/btnLogin"
         android:id="@+id/btnLogin"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/txtContrasena"
-        android:layout_alignEnd="@+id/txtContrasena"
+        android:layout_alignRight="@+id/txtDirectorio"
+        android:layout_alignEnd="@+id/txtDirectorio"
         android:layout_marginBottom="52dp"
         android:clickable="true"
         android:onClick="onClickBtnLoguearse"/>
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/lblUsuario"
-        android:id="@+id/lblUsuario"
+        android:id="@+id/lblPuerto"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -32,8 +32,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtUsuario"
-        android:layout_below="@+id/lblUsuario"
+        android:id="@+id/txtPuerto"
+        android:layout_below="@+id/lblPuerto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:inputType="text" />
@@ -43,8 +43,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/lblContrasena"
-        android:id="@+id/lblContrasena"
-        android:layout_below="@+id/txtUsuario"
+        android:id="@+id/lblDirectorio"
+        android:layout_below="@+id/txtPuerto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="68dp" />
@@ -52,8 +52,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtContrasena"
-        android:layout_below="@+id/lblContrasena"
+        android:id="@+id/txtDirectorio"
+        android:layout_below="@+id/lblDirectorio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:inputType="text" />
