@@ -60,6 +60,8 @@ public class LoginActivity extends ActionBarActivity {
         //ckbGuardarPass.setChecked(autenticacion.getGuardar());
         ckbGuardarPass.setChecked(true);
         //Chequeamos si los valores son nulos, habilitar boton Registrarse y deshabilitar login.Viceversa
+        Log.v("URI", autenticacion.getUri());
+
         if(!autenticacion.getUri().isEmpty())
         {
             btnRegistrar.setText("Configurar URL");
