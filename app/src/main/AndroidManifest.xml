@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="type.proy.com.inventarioandroid" >
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -15,7 +17,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".actividades.LoginActivity"
@@ -45,14 +46,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="type.proy.com.inventarioandroid.actividades.RegistrarActivity"
+            android:name=".actividades.RegistrarActivity"
             android:label="@string/title_activity_registrar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.REGISTRAR_URL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".actividades.ComputadoraActivity"
+            android:label="@string/title_activity_computadora" >
+        </activity>
+        <activity
+            android:name=".actividades.AbmComputadoraActivity"
+            android:label="@string/title_activity_abm_computadora" >
         </activity>
     </application>
 

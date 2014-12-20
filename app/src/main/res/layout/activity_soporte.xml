@@ -16,12 +16,86 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Listar"
-        android:id="@+id/btnListarSoporte"
+        android:text="ID Soporte"
+        android:id="@+id/lblIdSoporte"
+        android:layout_marginTop="29dp"
         android:layout_below="@+id/lblSoporte"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Observaciones"
+        android:id="@+id/lblObservaciones"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/txtIdSoporte"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID Computadora"
+        android:id="@+id/lblIdComputadora"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/txtObservaciones"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:id="@+id/lblEstadoSoporte"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/txtIdComputadora"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIdSoporte"
+        android:layout_below="@+id/lblIdSoporte"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtObservaciones"
+        android:layout_below="@+id/lblObservaciones"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIdComputadora"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtEstado"
+        android:layout_below="@+id/lblEstadoSoporte"
+        android:layout_marginTop="22dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver"
+        android:id="@+id/btnVerComputadora"
+        android:layout_below="@+id/txtIdComputadora"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
 </RelativeLayout>
