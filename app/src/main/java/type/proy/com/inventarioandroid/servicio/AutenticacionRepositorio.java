@@ -22,7 +22,7 @@ public class AutenticacionRepositorio {
 
     /**
      * Permite obtener una instancia de Autenticacion desde el archivo datosAutenticacion.json guardados en el celular.
-     * En caso que no exista el archivo lo crea con valores nulos.
+     *
      * @param activity
      * @return
      */
@@ -56,7 +56,8 @@ public class AutenticacionRepositorio {
 
     /**
      * Se encarga de leer el archivo datosAutenticacion.json. Devuelve un String con los datos
-     * para autenticarse con el fin de  utilizar los servicios restful.
+     * para autenticarse con el fin de  utilizar los servicios restful.Si el archivo no existe,
+     * devuelve un string con el formato de json pero con la variables en null.
      * @param activity
      * @return
      */
