@@ -30,7 +30,6 @@ public class AutenticacionRepositorio {
     {
         Autenticacion autenticacion = new Autenticacion();
         String json = leerJSON(activity);
-        Log.v("JSON", "json********** "+json);
 
         try
         {
