@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,20 +21,19 @@ public class LoginActivity extends ActionBarActivity {
     private Autenticacion autenticacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.v("onCreate", "INICIANDO");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         //Creando instancias de los componentes del activity.
-        final EditText usuario = (EditText) findViewById(R.id.txtUsuario);
-        final EditText pass = (EditText) findViewById(R.id.txtContrasena);
+        final EditText usuario = (EditText) findViewById(R.id.txtPuerto);
+        final EditText pass = (EditText) findViewById(R.id.txtDirectorio);
         final Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
 
         //Obtenemos los valores del datosAutenticacion.json en una instancia de Autenticacion.
         AutenticacionRepositorio autenticacionRepositorio = new AutenticacionRepositorio();
-        autenticacion = autenticacionRepositorio.autenticar(this);
+        autenticacion = autenticacionRepositorio.datosAutenticacion(this);
         //Chequeamos si los valores son nulos, habilitar boton Registrarse y deshabilitar login.Viceversa
         if(!autenticacion.getUsuario().isEmpty())
         {
@@ -59,12 +57,11 @@ public class LoginActivity extends ActionBarActivity {
      */
     public void onClickBtnRegistrar(View view)
     {
-        int mod = 0;
         final Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
-        if(btnRegistrar.getText().toString().toLowerCase().equals("Modificar Url".toLowerCase()))
-            mod =1;
         Intent intent = new Intent("android.intent.action.REGISTRAR_DATOS");
-        intent.putExtra("modificar", mod);
+        intent.putExtra("servidor", autenticacion.getServidor());
+        intent.putExtra("puerto", autenticacion.getPuerto());
+        intent.putExtra("directorio", autenticacion.getDirectorio());
         startActivity(intent);
 
     }
@@ -97,8 +94,8 @@ public class LoginActivity extends ActionBarActivity {
         Intent intent = new Intent("android.intent.action.MAIN");
 
         intent.putExtra("url", autenticacion.getUri());
-        intent.putExtra("user", autenticacion.getUsuario());
-        intent.putExtra("pass", autenticacion.getPassword().toString());
+        intent.putExtra("usuario", autenticacion.getUsuario());
+        intent.putExtra("contrasena", autenticacion.getPassword().toString());
 
         startActivity(intent);
         this.toString("Operación Exitosa");
