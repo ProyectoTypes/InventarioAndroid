@@ -31,8 +31,8 @@ public class RegistrarActivity extends ActionBarActivity {
 
         //Obteniendo Componentes.
         final EditText txtUrlServidor = (EditText) findViewById(R.id.txtUrlServidor);
-        final EditText txtPuerto = (EditText) findViewById(R.id.txtPuerto);
-        final EditText txtDirectorio = (EditText) findViewById(R.id.txtDirectorio);
+        final EditText txtPuerto = (EditText) findViewById(R.id.txtUsuario);
+        final EditText txtDirectorio = (EditText) findViewById(R.id.txtContrasena);
 
         //Seteando los componentes vacios con los datos recibidos por el activity padre.
         txtUrlServidor.setText(url);
@@ -47,6 +47,9 @@ public class RegistrarActivity extends ActionBarActivity {
             public void onClick(View view) {
                 AutenticacionRepositorio autenticacionRepositorio = new AutenticacionRepositorio();
                 final Autenticacion autenticar = autenticacionRepositorio.datosAutenticacion(activity);
+                autenticar.setUsuario("");
+                autenticar.setPassword("");
+                autenticar.setGuardar(false);
                 autenticar.setServidor(txtUrlServidor.getText().toString());
                 autenticar.setPuerto(txtPuerto.getText().toString());
                 autenticar.setDirectorio(txtDirectorio.getText().toString());
