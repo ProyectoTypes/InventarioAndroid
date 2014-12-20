@@ -45,7 +45,7 @@ public class Autenticacion {
     }
 
     private String directorio;
-    
+
     public String getDirectorio() {
         return directorio;
     }
