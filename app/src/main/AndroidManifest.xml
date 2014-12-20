@@ -23,10 +23,29 @@
         <activity
             android:name=".actividades.AbmSoporteActivity"
             android:label="@string/title_activity_abm_soporte" >
+            <intent-filter>
+                <action android:name="android.intent.action.ADMINISTRAR_SOPORTE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".dom.SoporteActivity"
             android:label="@string/title_activity_soporte" >
+            <intent-filter>
+                <action android:name="android.intent.action.VER_SOPORTE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".actividades.RegistrarActivity"
+            android:label="@string/title_activity_registrar" >
+            <intent-filter>
+                <action android:name="android.intent.action.REGISTRAR_DATOS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
