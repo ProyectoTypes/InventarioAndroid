@@ -8,7 +8,7 @@
     <string name="lblUsuario">Usuario</string>
     <string name="lblContrasena">Contraseña</string>
     <string name="ckbGuardarContrasena">Guardar Contraseña</string>
-    <string name="btnRegistrar">Registrarse</string>
+    <string name="btnRegistrar">Registrar URL</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="btnSoporte">Soporte Tecnico</string>
     <string name="btnComputadoras">Computadoras</string>

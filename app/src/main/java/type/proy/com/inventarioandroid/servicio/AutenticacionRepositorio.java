@@ -120,7 +120,11 @@ public class AutenticacionRepositorio {
             e.printStackTrace();
         }
         try {
+            Log.v("JSON", "Guardando el archivo");
+
             FileOutputStream file = activity.openFileOutput("datosAutenticacion.json", Context.MODE_PRIVATE);
+            Log.v("JSON", "PATH: "+file.toString());
+
             file.write(obj.toString().getBytes());
             file.close();
         } catch (IOException e) {
