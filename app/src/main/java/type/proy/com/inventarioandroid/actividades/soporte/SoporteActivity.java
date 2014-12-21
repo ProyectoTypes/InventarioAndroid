@@ -97,7 +97,7 @@ public class SoporteActivity extends ActionBarActivity {
 
         dtFecha.setText(soporte.getMembers().getFecha().getValue());
 
-        //Log.v("MADAFAKAAAAAAA",soporte.getMembers().getComputadora().getValue().getHref());
+        //Log.v("*********************USUARIO DE COMPUTADORA",soporte.getMembers().getComputadora().getMembers().getTecnico().getValue().getTitle());
 
 
 
@@ -107,7 +107,9 @@ public class SoporteActivity extends ActionBarActivity {
         Intent newIntent = new Intent("android.intent.action.COMPUTADORA");
         newIntent.putExtra("user",user);
         newIntent.putExtra("pass",pass);
-        newIntent.putExtra("url",url+soporte.getMembers().getComputadora().getValue().getHref());
+        Log.v("MADAFAKAAAAAAA",soporte.getMembers().getComputadora().getValue().getHref());
+
+        newIntent.putExtra("url",soporte.getMembers().getComputadora().getValue().getHref());
         startActivity(newIntent);
 
 
