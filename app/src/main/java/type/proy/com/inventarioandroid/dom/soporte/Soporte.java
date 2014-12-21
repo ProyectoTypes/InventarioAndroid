@@ -20,8 +20,10 @@ public class Soporte {
         private DatoCurso estado;
         private DatoCurso tecnico;//Tecnico
         private DatoString fecha;
-        private DatoCurso computadora;//Computadora
+
+
         private DatoString observaciones;
+
         public DatoString getObservaciones() {
             return observaciones;
         }
@@ -46,13 +48,7 @@ public class Soporte {
             this.estado = estado;
         }
 
-        public DatoCurso getTecnico() {
-            return tecnico;
-        }
 
-        public void setTecnico(DatoCurso tecnico) {
-            this.tecnico = tecnico;
-        }
 
         public DatoString getFecha() {
             return fecha;
@@ -62,13 +58,6 @@ public class Soporte {
             this.fecha = fecha;
         }
 
-        public DatoCurso getComputadora() {
-            return computadora;
-        }
-
-        public void setComputadora(DatoCurso computadora) {
-            this.computadora = computadora;
-        }
 
         //private DatoString habilitado;
         //private DatoString time_system;
@@ -94,8 +83,49 @@ public class Soporte {
             }
         }
 
+
+
+
+
+
         public class DatoCurso {
 
+            DatoTitle value;
+
+            public DatoTitle getValue() {
+                return value;
+            }
+
+            public void setValue(DatoTitle value) {
+                this.value = value;
+            }
+
+            public class DatoTitle {
+                String title;
+
+                public String getTitle() {
+                    return title;
+                }
+
+                public void setTitle(String title) {
+                    this.title = title;
+                }
+            }
+        }
+        /**
+         * Recuperando datos de Computadora
+         *
+         */
+        private DatoComputadora computadora;//Computadora
+
+        public DatoComputadora getComputadora() {
+            return computadora;
+        }
+
+        public void setComputadora(DatoComputadora  computadora) {
+            this.computadora = computadora;
+        }
+        public class DatoComputadora{
             DatoTitle value;
 
             public DatoTitle getValue() {
