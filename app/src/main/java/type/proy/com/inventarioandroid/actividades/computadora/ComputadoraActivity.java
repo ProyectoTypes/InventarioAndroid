@@ -77,38 +77,41 @@ public class ComputadoraActivity extends ActionBarActivity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        String[] memoriaArray = computadora.getMembers().getMemoria().getValue().getTitle().split("-");
-        Log.v("COPMUTADORA DATOS", computadora.getMembers().getMemoria().getValue().getTitle());
+        if(computadora==null) {
+            this.generarAlerta(error);
+            return;
+        }
+        //String[] memoriaArray = computadora.getMembers().getMemoria().getValue().getTitle().split("-");
+        //Log.v("COPMUTADORA DATOS", computadora.getMembers().getMemoria().getValue().getTitle());
 
         //List<RestLink> LinksSoportesList = null;
         final List<String> list = new ArrayList<String>();
-        list.add("Nombre del Equipo");
+        list.add("[Nombre del Equipo]");
         list.add( computadora.getMembers().getNombreEquipo().getValue());
-        list.add("Usuario");
+        list.add("[Usuario]");
         list.add( computadora.getMembers().getUsuario().getValue().getTitle());
-        list.add("Placa de Red");
+        list.add("[Placa de Red]");
         list.add( computadora.getMembers().getPlacaDeRed().getValue().getTitle());
-        list.add("Motherboard");
+        list.add("[Motherboard]");
         list.add( computadora.getMembers().getMotherboard().getValue().getTitle());
-        list.add("Procesador");
+        list.add("[Procesador]");
         list.add( computadora.getMembers().getProcesador().getValue().getTitle());
-        list.add("Memoria");
+        list.add("[Memoria]");
         list.add( computadora.getMembers().getMemoria().getValue().getTitle());
         if(computadora.getMembers().getTecnico().getValue()!=null){
-            list.add("Tecnico");
+            list.add("[Tecnico]");
             list.add( computadora.getMembers().getTecnico().getValue().getTitle());
         }
-        list.add("Disco");
+        list.add("[Disco]");
         list.add( computadora.getMembers().getDisco().getValue().getTitle());
         if(computadora.getMembers().getImpresora().getValue()!=null){
-            list.add("Impresora");
+            list.add("[Impresora]");
             list.add( computadora.getMembers().getImpresora().getValue().getTitle());
         }
         //llenar la lista
         final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
                 android.R.layout.simple_list_item_1, list);
         lstComputadora.setAdapter(adapter);
-        this.generarAlerta(error);
     }
     /**
      * Muestra una pequeña ventana en el celular con un mensaje enviado por parametro.
