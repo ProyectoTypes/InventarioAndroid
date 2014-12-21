@@ -38,8 +38,10 @@
         </activity>
         <activity
             android:name=".actividades.soporte.SoporteActivity"
-            android:label="@string/title_activity_soporte" >
-            <intent-filter>
+            android:label="@string/title_activity_soporte"
+            android:screenOrientation="portrait" >
+
+        <intent-filter>
                 <action android:name="android.intent.action.SOPORTE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
