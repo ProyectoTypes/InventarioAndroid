@@ -50,4 +50,14 @@ public class RestLink {
     public void setType(String type) {
         this.type = type;
     }
+	@Override
+    public String toString() {
+        return "RestLink{" +
+                "rel='" + rel + '\'' +
+                ", href='" + href + '\'' +
+                ", method='" + method + '\'' +
+                ", type='" + type + '\'' +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }

@@ -1,7 +1,7 @@
 package type.proy.com.inventarioandroid.dom.soporte;
 
 /**
- * Created by cipoleto on 20/12/14.
+ * Created by munoz on 20/12/14.
  */
 public class Soporte {
     Members members;
@@ -16,60 +16,69 @@ public class Soporte {
 
     // nested class
     public class Members{
-        private DatoString observaciones;
-        private DatoString habilitado;
-        private DatoString fecha;
-        private DatoString time_system;
-        private DatoCurso creadoPor;
-        private DatoCurso tecnico;//Tecnico
         private DatoCurso insumos;//Insumos
-        private DatoCurso computadora;//Computadora
         private DatoCurso estado;
-        private DatoCurso reparando;
-        private DatoCurso recepcionando;
-        private DatoCurso cancelando;
-        private DatoCurso entregando;
-        private DatoCurso esperando;
-
-        public DatoString getApellido() {
-            return apellido;
+        private DatoCurso tecnico;//Tecnico
+        private DatoString fecha;
+        private DatoCurso computadora;//Computadora
+        private DatoString observaciones;
+        public DatoString getObservaciones() {
+            return observaciones;
         }
 
-        public void setApellido(DatoString apellido) {
-            this.apellido = apellido;
+        public void setObservaciones(DatoString observaciones) {
+            this.observaciones = observaciones;
         }
 
-        public DatoString getNombre() {
-            return nombre;
+        public DatoCurso getInsumos() {
+            return insumos;
         }
 
-        public void setNombre(DatoString nombre) {
-            this.nombre = nombre;
+        public void setInsumos(DatoCurso insumos) {
+            this.insumos = insumos;
         }
 
-        public DatoString getDni() {
-            return dni;
+        public DatoCurso getEstado() {
+            return estado;
         }
 
-        public void setDni(DatoString dni) {
-            this.dni = dni;
+        public void setEstado(DatoCurso estado) {
+            this.estado = estado;
         }
 
-        public DatoString getFechaNacimiento() {
-            return fechaNacimiento;
+        public DatoCurso getTecnico() {
+            return tecnico;
         }
 
-        public void setFechaNacimiento(DatoString fechaNacimiento) {
-            this.fechaNacimiento = fechaNacimiento;
+        public void setTecnico(DatoCurso tecnico) {
+            this.tecnico = tecnico;
         }
 
-        public DatoCurso getCurso() {
-            return curso;
+        public DatoString getFecha() {
+            return fecha;
         }
 
-        public void setCurso(DatoCurso curso) {
-            this.curso = curso;
+        public void setFecha(DatoString fecha) {
+            this.fecha = fecha;
         }
+
+        public DatoCurso getComputadora() {
+            return computadora;
+        }
+
+        public void setComputadora(DatoCurso computadora) {
+            this.computadora = computadora;
+        }
+
+        //private DatoString habilitado;
+        //private DatoString time_system;
+        //private DatoCurso creadoPor;
+        //private DatoCurso reparando;
+        //private DatoCurso recepcionando;
+        //private DatoCurso cancelando;
+        //private DatoCurso entregando;
+        //private DatoCurso esperando;
+
 
         // nested classes
 
