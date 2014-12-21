@@ -82,10 +82,11 @@ public class SoporteActivity extends ActionBarActivity {
             e.printStackTrace();
         }
         txtObservaciones.setText(soporte.getMembers().getObservaciones().getValue());
-        lblEstado.setText(lblEstado.getText()+" "+soporte.getMembers().getEstado().getValue());
+        //lblEstado.setText(lblEstado.getText()+" "+soporte.getMembers().getEstado().getValue());
         //llenar la lista
         final List<String> list = new ArrayList<String>();
-        list.add(soporte.getMembers().getComputadora().getValue().getTitle());
+        list.add(soporte.getMembers().getComputadora().getValue().getHref());
+        Log.v("MADAFAKAAAAAAA",soporte.getMembers().getComputadora().getValue().getHref());
 
         final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
                 android.R.layout.simple_list_item_1, list);
