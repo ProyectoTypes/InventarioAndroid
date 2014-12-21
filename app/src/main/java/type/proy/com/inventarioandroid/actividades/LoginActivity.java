@@ -42,8 +42,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.ExecutionException;
 
 import type.proy.com.inventarioandroid.R;
@@ -226,23 +228,28 @@ public class LoginActivity extends ActionBarActivity {
                 HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
 
                 RestTemplate restTemplate = new RestTemplate();
-                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                try {
+                    restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-                // Make the HTTP GET request to the Basic Auth protected URL
+                    // Make the HTTP GET request to the Basic Auth protected URL
 
-                ResponseEntity<RestLinks> response = null;
-                response = restTemplate.exchange(autenticacion.getUri(), HttpMethod.GET, requestEntity, RestLinks.class);
+                    ResponseEntity<RestLinks> response = null;
+                    response = restTemplate.exchange(autenticacion.getUri(), HttpMethod.GET, requestEntity, RestLinks.class);
 
-                //return response.getBody();
+                    //return response.getBody();
 
-                RestLinks restLinks = response.getBody();
+                    RestLinks restLinks = response.getBody();
 
-                Log.v("leido", restLinks.getLinks().size()+"");
+                    //Log.v("leido", restLinks.getLinks().size()+"");
 
 
-                return restLinks;
-
-            } catch (Exception e) {
+                    return restLinks;
+                }
+                catch (RestClientException e)
+                {
+                    error ="Url Incorrecta";
+                }
+            }  catch (Exception e) {
                 if (e.getMessage().contains("401")) {
                     error = "Nombre de usuario o contraseña incorrectos.";
                 } else {
