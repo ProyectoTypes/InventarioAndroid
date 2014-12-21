@@ -73,8 +73,6 @@ public class ListaSoporteActivity extends ActionBarActivity {
         final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
                 android.R.layout.simple_list_item_1, listNombres);
         lstSoportes.setAdapter(adapter);
-
-        this.generarAlerta("FIN DEL BUSCAR");
     }
 
     private class listAllSoporteThread extends AsyncTask<Void, Void, Soportes> {
@@ -102,18 +100,18 @@ public class ListaSoporteActivity extends ActionBarActivity {
 
 
                 Soportes soportes = response.getBody();
-                if(soportes==null){
-                    Log.v("NULLLL ***********************************************************","NULL");
-
-                    return null;}
-                Log.v("listado Soporte contiene", soportes.getResult().getValue().size() +"");
-                int arraySize = soportes.getResult().getValue().size();
-
-                RestLink[] alumnosArray = new RestLink[arraySize];
-                for (int i=0; i< arraySize;i++){
-                    alumnosArray[i] = soportes.getResult().getValue().get(i);
-                    Log.v("Alumno Encontrado", alumnosArray[i].getTitle());
-                }
+                //if(soportes==null){
+                  //  Log.v("NULLLL ***********************************************************","NULL");
+                    //
+  //                  return null;}
+    //            Log.v("listado Soporte contiene", soportes.getResult().getValue().size() +"");
+      //          int arraySize = soportes.getResult().getValue().size();
+//
+  //              RestLink[] array = new RestLink[arraySize];
+    //            for (int i=0; i< arraySize;i++){
+      //              array[i] = soportes.getResult().getValue().get(i);
+        //            Log.v(" Encontrado", array[i].getTitle());
+          //      }
 
 
                 return soportes;
