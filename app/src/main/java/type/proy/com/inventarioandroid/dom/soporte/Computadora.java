@@ -28,21 +28,21 @@ public class Computadora {
 
     // nested class
     public class Members {
-        private Usuario usuario;
-        public Usuario getUsuario() {
+        private Dato usuario;
+        public Dato getUsuario() {
             return usuario;
         }
 
-        public void setUsuario(Usuario usuario) {
+        public void setUsuario(Dato usuario) {
             this.usuario = usuario;
         }
 
-        private Tecnico tecnico;
-        public Tecnico getTecnico() {
+        private Dato tecnico;
+        public Dato getTecnico() {
             return tecnico;
         }
 
-        public void setTecnico(Tecnico tecnico) {
+        public void setTecnico(Dato tecnico) {
             this.tecnico = tecnico;
         }
 
@@ -55,142 +55,58 @@ public class Computadora {
             this.nombreEquipo = nombreEquipo;
         }
 
-        private PlacaDeRed placaDeRed;
-        public PlacaDeRed getPlacaDeRed() {
+        private Dato placaDeRed;
+        public Dato getPlacaDeRed() {
             return placaDeRed;
         }
 
-        public void setPlacaDeRed(PlacaDeRed placaDeRed) {
+        public void setPlacaDeRed(Dato placaDeRed) {
             this.placaDeRed = placaDeRed;
         }
 ;
-        private Motherboard motherboard;
-        public Motherboard getMotherboard() {
+        private Dato motherboard;
+        public Dato getMotherboard() {
             return motherboard;
         }
 
-        public void setMotherboard(Motherboard motherboard) {
+        public void setMotherboard(Dato motherboard) {
             this.motherboard = motherboard;
         }
 
-        private Procesador procesador;
-        public Procesador getProcesador() {
+        private Dato procesador;
+        public Dato getProcesador() {
             return procesador;
         }
 
-        public void setProcesador(Procesador procesador) {
+        public void setProcesador(Dato procesador) {
             this.procesador = procesador;
         }
 
-        private Disco disco;
-        public Disco getDisco() {
+        private Dato disco;
+        public Dato getDisco() {
             return disco;
         }
 
-        public void setDisco(Disco disco) {
+        public void setDisco(Dato disco) {
             this.disco = disco;
         }
 
-        private Impresora impresora;
-        public Impresora getImpresora() {
+        private Dato impresora;
+        public Dato getImpresora() {
             return impresora;
         }
 
-        public void setImpresora(Impresora impresora) {
+        public void setImpresora(Dato impresora) {
             this.impresora = impresora;
         }
 
-        private Memoria memoria;
-        public Memoria getMemoria() {
+        private Dato memoria;
+        public Dato getMemoria() {
             return memoria;
         }
-
-        public void setMemoria(Memoria memoria) {
+        public void setMemoria(Dato memoria) {
             this.memoria = memoria;
         }
-
-
-
-        public class PlacaDeRed{
-            private DatoString ip;
-
-            public DatoString getIp() {
-                return ip;
-            }
-
-            public void setIp(DatoString ip) {
-                this.ip = ip;
-            }
-
-            private DatoString mac;
-
-            public DatoString getMac() {
-                return mac;
-            }
-
-            public void setMac(DatoString mac) {
-                this.mac = mac;
-            }
-        }
-        public class Motherboard{
-            private DatoString modelo;
-            public DatoString getModelo() {
-                return modelo;
-            }
-
-            public void setModelo(DatoString modelo) {
-                this.modelo = modelo;
-            }
-        }
-        public class Procesador{
-            private DatoString modelo;
-
-            public DatoString getModelo() {
-                return modelo;
-            }
-
-            public void setModelo(DatoString modelo) {
-                this.modelo = modelo;
-            }
-        }
-        public class Disco{
-            //Faltaria CategoriaDisco
-            private String marca;
-        }
-        public class Impresora{
-            //Faltarian otros atributos.
-
-            private DatoString fabricanteImpresora;
-
-            public DatoString getFabricanteImpresora() {
-                return fabricanteImpresora;
-            }
-
-            public void setFabricanteImpresora(DatoString fabricanteImpresora) {
-                this.fabricanteImpresora = fabricanteImpresora;
-            }
-        }
-        public class Memoria{
-            private DatoString marca;
-            public DatoString getMarca() {
-                return marca;
-            }
-
-            public void setMarca(DatoString marca) {
-                this.marca = marca;
-            }
-
-            private DatoString tamano;
-
-            public DatoString getTamano() {
-                return tamano;
-            }
-
-            public void setTamano(DatoString tamano) {
-                this.tamano = tamano;
-            }
-        }
-
     }
 
 }
