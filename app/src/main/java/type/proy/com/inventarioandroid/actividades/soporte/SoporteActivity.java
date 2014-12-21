@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -60,6 +61,7 @@ public class SoporteActivity extends ActionBarActivity {
     private String user="";
     private String pass="";
     private Soporte soporte =null;
+    private String urlComputadora ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +71,14 @@ public class SoporteActivity extends ActionBarActivity {
         url =  intent.getStringExtra("url");
         user =  intent.getStringExtra("user");
         pass =  intent.getStringExtra("pass");
-        ListView lstComputadora = (ListView) findViewById(R.id.lstComputadora);
-        ListView lstTecnico = (ListView) findViewById(R.id.lstTecnico);
+
+
         EditText txtObservaciones = (EditText) findViewById(R.id.mltxtObservaciones);
         EditText dtFecha = (EditText) findViewById(R.id.dtFechaSoporte);
         TextView lblEstado = (TextView)findViewById(R.id.lblEstado);
+        TextView lblIDComputadora = (TextView)findViewById(R.id.lblIDComputadora);
+        TextView lblTecnico = (TextView)findViewById(R.id.lblTecnicoSoporte);
+
         try {
             soporte = new getSoporteThread().execute().get();
         } catch (InterruptedException e) {
@@ -82,42 +87,32 @@ public class SoporteActivity extends ActionBarActivity {
             e.printStackTrace();
         }
         txtObservaciones.setText(soporte.getMembers().getObservaciones().getValue());
-        //lblEstado.setText(lblEstado.getText()+" "+soporte.getMembers().getEstado().getValue());
+        lblEstado.setText(lblEstado.getText()+" "+soporte.getMembers().getEstado().getValue().getTitle());
         //llenar la lista
-        final List<String> list = new ArrayList<String>();
-        list.add(soporte.getMembers().getComputadora().getValue().getHref());
-        Log.v("MADAFAKAAAAAAA",soporte.getMembers().getComputadora().getValue().getHref());
+        lblIDComputadora.setText(lblIDComputadora.getText()+": "+soporte.getMembers().getComputadora().getValue().getTitle());
+        if(soporte.getMembers().getTecnico().getValue()!=null)
+            lblTecnico.setText(lblTecnico.getText()+": "+soporte.getMembers().getTecnico().getValue().getTitle());
+        else
+            lblTecnico.setText(lblTecnico.getText()+": SIN ASIGNAR");
 
-        final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
-                android.R.layout.simple_list_item_1, list);
-        lstComputadora.setAdapter(adapter);
+        dtFecha.setText(soporte.getMembers().getFecha().getValue());
+
+        //Log.v("MADAFAKAAAAAAA",soporte.getMembers().getComputadora().getValue().getHref());
+
+
+
+    }
+    public void MostrarComputadora(View view)
+    {
+        Intent newIntent = new Intent("android.intent.action.COMPUTADORA");
+        newIntent.putExtra("user",user);
+        newIntent.putExtra("pass",pass);
+        newIntent.putExtra("url",url+soporte.getMembers().getComputadora().getValue().getHref());
+        startActivity(newIntent);
 
 
     }
-    private class StableArrayAdapter extends ArrayAdapter<String> {
 
-        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
-
-        public StableArrayAdapter(Context context, int textViewResourceId,
-                                  List<String> objects) {
-            super(context, textViewResourceId, objects);
-            for (int i = 0; i < objects.size(); ++i) {
-                mIdMap.put(objects.get(i), i);
-            }
-        }
-
-        @Override
-        public long getItemId(int position) {
-            String item = getItem(position);
-            return mIdMap.get(item);
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
-
-    }
     private class getSoporteThread extends AsyncTask<Void, Void, Soporte> {
         @Override
         protected Soporte doInBackground(Void... params) {
