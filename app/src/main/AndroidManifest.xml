@@ -60,10 +60,20 @@
         <activity
             android:name=".actividades.computadora.ComputadoraActivity"
             android:label="@string/title_activity_computadora" >
+            <intent-filter>
+                <action android:name="android.intent.action.COMPUTADORA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".actividades.computadora.AbmComputadoraActivity"
             android:label="@string/title_activity_abm_computadora" >
+            <intent-filter>
+                <action android:name="android.intent.action.ABM_COMPUTADORA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".actividades.soporte.ListaSoporteActivity"
