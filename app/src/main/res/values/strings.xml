@@ -23,5 +23,10 @@
     <string name="title_activity_computadora">ComputadoraActivity</string>
     <string name="title_activity_abm_computadora">AbmComputadoraActivity</string>
     <string name="title_activity_lista_soporte">ListaSoporteActivity</string>
+    <string name="lblIDPCSoporte">ID Computadora</string>
+    <string name="lblObservacionesSoporte">Observaciones</string>
+    <string name="lblFechaSoporte">Fecha</string>
+    <string name="lblTecnicoSoporte">Tecnico</string>
+    <string name="lblEstadoSoporte">Estado:</string>
 
 </resources>

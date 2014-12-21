@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="ID Computadora"
+        android:text="@string/lblIDPCSoporte"
         android:id="@+id/lblIDComputadora"
         android:layout_below="@+id/lblSoporte"
         android:layout_alignParentLeft="true"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Observaciones"
+        android:text="@string/lblObservacionesSoporte"
         android:id="@+id/lblObservaciones" />
 
     <EditText
@@ -54,7 +54,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha"
+        android:text="@string/lblFechaSoporte"
         android:id="@+id/lblFecha" />
 
     <EditText
@@ -62,13 +62,13 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/dtFechaSoporte"
         android:enabled="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tecnico"
+        android:text="@string/lblTecnicoSoporte"
         android:id="@+id/lblTecnico" />
 
     <ListView
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Estado: "
+        android:text="@string/lblEstadoSoporte"
         android:id="@+id/lblEstado"
         android:layout_gravity="center_horizontal" />
 
