@@ -40,7 +40,7 @@
             android:name=".actividades.soporte.SoporteActivity"
             android:label="@string/title_activity_soporte" >
             <intent-filter>
-                <action android:name="android.intent.action.VER_SOPORTES" />
+                <action android:name="android.intent.action.SOPORTE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -63,6 +63,16 @@
             android:name=".actividades.AbmComputadoraActivity"
             android:label="@string/title_activity_abm_computadora" >
         </activity>
+        <activity
+            android:name=".actividades.soporte.ListaSoporteActivity"
+            android:label="@string/title_activity_lista_soporte" >
+            <intent-filter>
+                <action android:name="android.intent.action.LISTAR_SOPORTES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
