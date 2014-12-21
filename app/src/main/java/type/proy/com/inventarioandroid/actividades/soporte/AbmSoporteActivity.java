@@ -41,13 +41,18 @@ public class AbmSoporteActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void onClickBtnComputadora(View view)
+    public void onClickBtnListAllSoporte(View view)
     {
-        Intent intent = new Intent("android.intent.action.VER_SOPORTES");
-        intent.putExtra("url", intent.getStringExtra("url"));
-        intent.putExtra("user", intent.getStringExtra("user"));
-        intent.putExtra("pass", intent.getStringExtra("pass"));
-        startActivity(intent);
+
+        Intent intentOrigen = getIntent();
+
+        Intent intentDestino =new Intent("android.intent.action.VER_SOPORTES");
+        intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
+        intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
+        intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
+        startActivity(intentDestino);
+
 
     }
+
 }

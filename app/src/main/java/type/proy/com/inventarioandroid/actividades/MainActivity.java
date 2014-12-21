@@ -44,28 +44,36 @@ public class MainActivity extends ActionBarActivity {
     }
     public void onClickBtnSoporte(View view)
     {
-        Intent intent = new Intent("android.intent.action.ADMINISTRAR_SOPORTE");
-        intent.putExtra("url", intent.getStringExtra("url"));
-        intent.putExtra("user", intent.getStringExtra("user"));
-        intent.putExtra("pass", intent.getStringExtra("pass"));
-        startActivity(intent);
+        Intent intentOrigen = getIntent();
+
+        Intent intentDestino = new Intent("android.intent.action.ADMINISTRAR_SOPORTE");
+        intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
+        intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
+        intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
+        startActivity(intentDestino);
 
     }
     public void onClickBtnComputadora(View view)
     {
-        Intent intent = new Intent("android.intent.action.ADMINISTRAR_SOPORTE");//FIXME: Llamar al activity computadora
-        intent.putExtra("url", intent.getStringExtra("url"));
-        intent.putExtra("user", intent.getStringExtra("user"));
-        intent.putExtra("pass", intent.getStringExtra("pass"));
-        startActivity(intent);
+        Intent intentOrigen = getIntent();
+
+        //FIXME: Llamar al activity computadora
+        Intent intentDestino = new Intent("android.intent.action.ADMINISTRAR_SOPORTE");
+        intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
+        intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
+        intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
+        startActivity(intentDestino);
 
     }
     public void onClickBtnEstadisticas(View view)
     {
-        Intent intent = new Intent("android.intent.action.ADMINISTRAR_SOPORTE");//FIXME: Llamar al activity estadisticas.
-        intent.putExtra("url", intent.getStringExtra("url"));
-        intent.putExtra("user", intent.getStringExtra("user"));
-        intent.putExtra("pass", intent.getStringExtra("pass"));
-        startActivity(intent);
+        Intent intentOrigen = getIntent();
+
+        //FIXME: Llamar al activity estadisticas.
+        Intent intentDestino = new Intent("android.intent.action.ADMINISTRAR_SOPORTE");
+        intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
+        intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
+        intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
+        startActivity(intentDestino);
     }
 }

@@ -150,8 +150,8 @@ public class LoginActivity extends ActionBarActivity {
         Intent intent = new Intent("android.intent.action.MAINPPAL");
 
         intent.putExtra("url", autenticacion.getUri());
-        intent.putExtra("usuario", autenticacion.getUsuario());
-        intent.putExtra("contrasena", autenticacion.getPassword().toString());
+        intent.putExtra("user", autenticacion.getUsuario());
+        intent.putExtra("pass", autenticacion.getPassword().toString());
 
         startActivity(intent);
 
