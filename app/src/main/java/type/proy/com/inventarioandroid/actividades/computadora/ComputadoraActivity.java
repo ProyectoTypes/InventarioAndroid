@@ -19,7 +19,7 @@
  *
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package type.proy.com.inventarioandroid.actividades;
+package type.proy.com.inventarioandroid.actividades.computadora;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;

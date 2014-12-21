@@ -58,11 +58,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".actividades.ComputadoraActivity"
+            android:name=".actividades.computadora.ComputadoraActivity"
             android:label="@string/title_activity_computadora" >
         </activity>
         <activity
-            android:name=".actividades.AbmComputadoraActivity"
+            android:name=".actividades.computadora.AbmComputadoraActivity"
             android:label="@string/title_activity_abm_computadora" >
         </activity>
         <activity
