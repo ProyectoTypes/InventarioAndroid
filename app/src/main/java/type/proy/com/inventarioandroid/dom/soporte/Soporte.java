@@ -18,7 +18,16 @@ public class Soporte {
     public class Members{
         private DatoCurso insumos;//Insumos
         private DatoCurso estado;
-        private DatoCurso tecnico;//Tecnico
+        private Tecnico tecnico;//Tecnico
+
+        public Tecnico getTecnico() {
+            return tecnico;
+        }
+
+        public void setTecnico(Tecnico tecnico) {
+            this.tecnico = tecnico;
+        }
+
         private DatoString fecha;
 
 

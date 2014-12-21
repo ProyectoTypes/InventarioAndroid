@@ -13,6 +13,7 @@ public class DatoTitle {
         public void setTitle(String title) {
             this.title = title;
         }
+
         private String href;
         public String getHref() {
             return href;
