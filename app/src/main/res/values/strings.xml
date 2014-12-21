@@ -22,5 +22,6 @@
     <string name="lblUrlServidor">Url Servidor</string>
     <string name="title_activity_computadora">ComputadoraActivity</string>
     <string name="title_activity_abm_computadora">AbmComputadoraActivity</string>
+    <string name="title_activity_lista_soporte">ListaSoporteActivity</string>
 
 </resources>
