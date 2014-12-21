@@ -46,7 +46,7 @@ public class AbmSoporteActivity extends ActionBarActivity {
 
         Intent intentOrigen = getIntent();
 
-        Intent intentDestino =new Intent("android.intent.action.VER_SOPORTES");
+        Intent intentDestino =new Intent("android.intent.action.LISTAR_SOPORTES");
         intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
         intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
         intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
