@@ -69,19 +69,6 @@ public class Soporte {
         //private DatoCurso esperando;
 
 
-        // nested classes
-
-        public class DatoString {
-            String value;
-
-            public String getValue() {
-                return value;
-            }
-
-            public void setValue(String value) {
-                this.value = value;
-            }
-        }
 
 
 
@@ -112,42 +99,17 @@ public class Soporte {
                 }
             }
         }
-        /**
-         * Recuperando datos de Computadora
-         *
-         */
-        private DatoComputadora computadora;//Computadora
 
-        public DatoComputadora getComputadora() {
+        private Computadora computadora;//Computadora
+
+        public Computadora getComputadora() {
             return computadora;
         }
 
-        public void setComputadora(DatoComputadora  computadora) {
+        public void setComputadora(Computadora  computadora) {
             this.computadora = computadora;
         }
-        public class DatoComputadora{
-            DatoTitle value;
 
-            public DatoTitle getValue() {
-                return value;
-            }
-
-            public void setValue(DatoTitle value) {
-                this.value = value;
-            }
-
-            public class DatoTitle {
-                String title;
-
-                public String getTitle() {
-                    return title;
-                }
-
-                public void setTitle(String title) {
-                    this.title = title;
-                }
-            }
-        }
 
 
 
