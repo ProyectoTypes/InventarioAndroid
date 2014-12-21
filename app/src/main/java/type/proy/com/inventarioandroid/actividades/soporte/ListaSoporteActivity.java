@@ -1,3 +1,24 @@
+/*
+ * This is a software made for inventory control
+ *
+ * Copyright (C) 2014, ProyectoTypes
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ *
+ *
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ */
 package type.proy.com.inventarioandroid.actividades.soporte;
 
 import android.content.Context;
@@ -8,6 +29,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -73,6 +96,30 @@ public class ListaSoporteActivity extends ActionBarActivity {
         final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
                 android.R.layout.simple_list_item_1, listNombres);
         lstSoportes.setAdapter(adapter);
+        //Abrir elementos de la lista
+        lstSoportes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view,
+                                    int position, final long id) {
+                final String item = (String) parent.getItemAtPosition(position);
+
+                Log.v("nombre",soportes.getResult().getValue().get(position).getTitle());
+                Log.v("link",soportes.getResult().getValue().get(position).getHref());
+
+                String url = soportes.getResult().getValue().get(position).getHref();
+
+                Intent newIntent = new Intent("android.intent.action.SOPORTE");
+                newIntent.putExtra("user",user);
+                newIntent.putExtra("pass",pass);
+                newIntent.putExtra("url",url);
+
+                startActivity(newIntent);
+
+
+            }
+        });
+
     }
 
     private class listAllSoporteThread extends AsyncTask<Void, Void, Soportes> {

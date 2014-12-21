@@ -48,7 +48,8 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/mltxtObservaciones" />
+        android:id="@+id/mltxtObservaciones"
+        android:enabled="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +62,8 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText" />
+        android:id="@+id/editText"
+        android:enabled="false" />
 
     <TextView
         android:layout_width="wrap_content"
