@@ -34,6 +34,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 import org.springframework.http.HttpAuthentication;
 import org.springframework.http.HttpBasicAuthentication;
@@ -85,6 +88,19 @@ public class ComputadoraActivity extends ActionBarActivity {
         //Log.v("COPMUTADORA DATOS", computadora.getMembers().getMemoria().getValue().getTitle());
 
         //List<RestLink> LinksSoportesList = null;
+        JsonObject json = new JsonObject();
+        json.addProperty("foo", "bar");
+
+        Ion.with(getBaseContext())
+                .load("http://example.com/post")
+                .setJsonObjectBody(json)
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        // do stuff with the result or error
+                    }
+                });
         final List<String> list = new ArrayList<String>();
         list.add("[Nombre del Equipo]");
         list.add( computadora.getMembers().getNombreEquipo().getValue());
