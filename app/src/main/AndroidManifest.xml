@@ -110,6 +110,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".dom.soporte.SectorActivity"
+            android:label="@string/title_activity_sector" >
+        </activity>
     </application>
 
 </manifest>
