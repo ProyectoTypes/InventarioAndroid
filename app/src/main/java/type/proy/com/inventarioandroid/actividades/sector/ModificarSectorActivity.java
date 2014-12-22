@@ -1,19 +1,43 @@
 package type.proy.com.inventarioandroid.actividades.sector;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 import type.proy.com.inventarioandroid.R;
+import type.proy.com.inventarioandroid.dom.soporte.Sector;
 
 
 public class ModificarSectorActivity extends ActionBarActivity {
-
+    private String url="";
+    private String user ="";
+    private String pass ="";
+    private String error="";
+    private String nombre="";
+    private Sector sector =null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_sector);
+        Intent intent = getIntent();
+        url =  intent.getStringExtra("url");
+        user =  intent.getStringExtra("user");
+        pass =  intent.getStringExtra("pass");
+        nombre =  intent.getStringExtra("nombre");
+        EditText txtNombreSector  = (EditText) findViewById(R.id.txtModNombreSector);
+        Button btnNombreSector = (Button) findViewById(R.id.btnModNombreSector);
+
+        txtNombreSector.setText(nombre);
+
     }
 
 
@@ -37,5 +61,22 @@ public class ModificarSectorActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickBtnModificarSector(View view)
+    {
+        JsonObject json = new JsonObject();
+        json.addProperty("foo", "bar");
+
+        Ion.with(getBaseContext())
+                .load(url+"http://example.com/put")
+                .setJsonObjectBody(json)
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        // do stuff with the result or error
+                    }
+                });
     }
 }

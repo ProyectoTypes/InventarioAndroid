@@ -42,5 +42,7 @@
         android:id="@+id/btnModNombreSector"
         android:layout_below="@+id/txtModNombreSector"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp" />
+        android:layout_marginTop="97dp"
+        android:clickable="true"
+        android:onClick="onClickBtnModificarSector"/>
 </RelativeLayout>

@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import type.proy.com.inventarioandroid.R;
+import type.proy.com.inventarioandroid.dom.soporte.Computadora;
 import type.proy.com.inventarioandroid.dom.soporte.Soportes;
 import type.proy.com.inventarioandroid.servicio.RestLink;
 
@@ -40,6 +41,7 @@ public class ListaComputadoraActivity extends ActionBarActivity {
     private String pass ="";
     //FIXME: Utilizamos SOportes, si funciona habria que cambiar el nombre a uno mas generico
     private Soportes computadoras=null;
+    private Computadora computadora = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +66,17 @@ public class ListaComputadoraActivity extends ActionBarActivity {
             //tomar nombres de los alumnos
             for (RestLink link : LinksComputadoraList) {
                 list.add(link.getTitle());
-                Log.v("Un soporte", link.toString());
+                Log.v("Un &%%%%%%%%%%%%%%", link.toString());
 
             }
+            //final List<String> list = new ArrayList<String>();
+            //list.add("[Computadora]");
+            //list.add(computadoras.getValue().getTitle());
         }
+        //llenar la lista
+        final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
+                android.R.layout.simple_list_item_1, list);
+        lstComputadoras.setAdapter(adapter);
     }
 
     private class listAllComputadoraThread extends AsyncTask<Void, Void, Soportes> {

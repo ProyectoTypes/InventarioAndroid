@@ -40,7 +40,7 @@
         android:layout_alignParentStart="true"
         android:clickable="true"
         android:onClick="onClickBtnEstadisticas"
-        android:enabled="true" />
+        android:enabled="false" />
 
     <Button
         android:layout_width="match_parent"
@@ -52,5 +52,5 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp"
         android:clickable="true"
-        android:onClick="onClickBtnComputadora"/>
+        android:onClick="onClickBtnBuscarSector"/>
 </RelativeLayout>

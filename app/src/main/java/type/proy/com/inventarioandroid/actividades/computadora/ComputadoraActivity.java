@@ -88,42 +88,32 @@ public class ComputadoraActivity extends ActionBarActivity {
         //Log.v("COPMUTADORA DATOS", computadora.getMembers().getMemoria().getValue().getTitle());
 
         //List<RestLink> LinksSoportesList = null;
-        JsonObject json = new JsonObject();
-        json.addProperty("foo", "bar");
 
-        Ion.with(getBaseContext())
-                .load("http://example.com/post")
-                .setJsonObjectBody(json)
-                .asJsonObject()
-                .setCallback(new FutureCallback<JsonObject>() {
-                    @Override
-                    public void onCompleted(Exception e, JsonObject result) {
-                        // do stuff with the result or error
-                    }
-                });
         final List<String> list = new ArrayList<String>();
-        list.add("[Nombre del Equipo]");
-        list.add( computadora.getMembers().getNombreEquipo().getValue());
-        list.add("[Usuario]");
-        list.add( computadora.getMembers().getUsuario().getValue().getTitle());
-        list.add("[Placa de Red]");
-        list.add( computadora.getMembers().getPlacaDeRed().getValue().getTitle());
-        list.add("[Motherboard]");
-        list.add( computadora.getMembers().getMotherboard().getValue().getTitle());
-        list.add("[Procesador]");
-        list.add( computadora.getMembers().getProcesador().getValue().getTitle());
-        list.add("[Memoria]");
-        list.add( computadora.getMembers().getMemoria().getValue().getTitle());
-        if(computadora.getMembers().getTecnico().getValue()!=null){
-            list.add("[Tecnico]");
-            list.add( computadora.getMembers().getTecnico().getValue().getTitle());
-        }
-        list.add("[Disco]");
-        list.add( computadora.getMembers().getDisco().getValue().getTitle());
-        if(computadora.getMembers().getImpresora().getValue()!=null){
-            list.add("[Impresora]");
-            list.add( computadora.getMembers().getImpresora().getValue().getTitle());
-        }
+        list.add("[Computadora]");
+        list.add(computadora.getValue().getTitle());
+        //list.add("[Nombre del Equipo]");
+        //list.add( computadora.getMembers().getNombreEquipo().getValue());
+        //list.add("[Usuario]");
+        //list.add( computadora.getMembers().getUsuario().getValue().getTitle());
+        //list.add("[Placa de Red]");
+          //  list.add( computadora.getMembers().getPlacaDeRed().getValue().getTitle());
+        //list.add("[Motherboard]");
+        //list.add( computadora.getMembers().getMotherboard().getValue().getTitle());
+        //list.add("[Procesador]");
+        //list.add( computadora.getMembers().getProcesador().getValue().getTitle());
+        //list.add("[Memoria]");
+        //list.add( computadora.getMembers().getMemoria().getValue().getTitle());
+        //if(computadora.getMembers().getTecnico().getValue()!=null){
+           // list.add("[Tecnico]");
+         //   list.add( computadora.getMembers().getTecnico().getValue().getTitle());
+       // }
+        //list.add("[Disco]");
+        //list.add( computadora.getMembers().getDisco().getValue().getTitle());
+        //if(computadora.getMembers().getImpresora().getValue()!=null){
+            //list.add("[Impresora]");
+          //  list.add( computadora.getMembers().getImpresora().getValue().getTitle());
+        //}
         //llenar la lista
         final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
                 android.R.layout.simple_list_item_1, list);

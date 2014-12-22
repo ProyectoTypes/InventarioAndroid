@@ -31,5 +31,6 @@
     <string name="title_activity_lista_computadora">ListaComputadoraActivity</string>
     <string name="title_activity_buscar_sector">BuscarSectorActivity</string>
     <string name="title_activity_modificar_sector">ModificarSectorActivity</string>
+    <string name="title_activity_sector">SectorActivity</string>
 
 </resources>

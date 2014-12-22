@@ -96,4 +96,15 @@ public class MainActivity extends ActionBarActivity {
         intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
         startActivity(intentDestino);
     }
+    public void onClickBtnBuscarSector(View view)
+    {
+        Intent intentOrigen = getIntent();
+
+        //FIXME: Llamar al activity estadisticas.
+        Intent intentDestino = new Intent("android.intent.action.BUSCAR_SECTOR");
+        intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
+        intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
+        intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
+        startActivity(intentDestino);
+    }
 }

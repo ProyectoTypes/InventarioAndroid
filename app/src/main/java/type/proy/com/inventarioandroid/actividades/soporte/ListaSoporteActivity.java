@@ -93,9 +93,9 @@ public class ListaSoporteActivity extends ActionBarActivity {
             }
         }
         //llenar la lista
-        //final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
-          //      android.R.layout.simple_list_item_1, listNombres);
-        //lstSoportes.setAdapter(adapter);
+        final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
+               android.R.layout.simple_list_item_1, listNombres);
+        lstSoportes.setAdapter(adapter);
         //Abrir elementos de la lista
         //lstSoportes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
