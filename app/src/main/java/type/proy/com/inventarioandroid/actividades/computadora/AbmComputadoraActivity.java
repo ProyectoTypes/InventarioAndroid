@@ -21,10 +21,12 @@
  */
 package type.proy.com.inventarioandroid.actividades.computadora;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import type.proy.com.inventarioandroid.R;
 
@@ -58,5 +60,15 @@ public class AbmComputadoraActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void listarComputadoras(View view)
+    {
+        Intent intentOrigen = getIntent();
+
+        Intent intentDestino = new Intent("android.intent.action.LISTA_COMPUTADORA");
+        intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
+        intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
+        intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
+        startActivity(intentDestino);
     }
 }

@@ -78,8 +78,7 @@ public class MainActivity extends ActionBarActivity {
     {
         Intent intentOrigen = getIntent();
 
-        //FIXME: Llamar al activity computadora
-        Intent intentDestino = new Intent("android.intent.action.ADMINISTRAR_SOPORTE");
+        Intent intentDestino = new Intent("android.intent.action.ABM_COMPUTADORA");
         intentDestino.putExtra("url", intentOrigen.getStringExtra("url"));
         intentDestino.putExtra("user", intentOrigen.getStringExtra("user"));
         intentDestino.putExtra("pass", intentOrigen.getStringExtra("pass"));
