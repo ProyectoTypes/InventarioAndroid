@@ -28,5 +28,6 @@
     <string name="lblFechaSoporte">Fecha</string>
     <string name="lblTecnicoSoporte">Tecnico</string>
     <string name="lblEstadoSoporte">Estado:</string>
+    <string name="title_activity_lista_computadora">ListaComputadoraActivity</string>
 
 </resources>
