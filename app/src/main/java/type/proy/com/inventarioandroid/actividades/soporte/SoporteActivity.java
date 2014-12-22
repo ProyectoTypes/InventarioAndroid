@@ -78,6 +78,9 @@ public class SoporteActivity extends ActionBarActivity {
         TextView lblEstado = (TextView)findViewById(R.id.lblEstado);
         TextView lblIDComputadora = (TextView)findViewById(R.id.lblIDComputadora);
         TextView lblTecnico = (TextView)findViewById(R.id.lblTecnicoSoporte);
+        EditText txtIpComputadora = (EditText)findViewById(R.id.txtIPComputadora);
+        EditText txtTecnicoSoporte = (EditText)findViewById(R.id.txtTecnicoSoporte);
+
 
         try {
             soporte = new getSoporteThread().execute().get();
@@ -89,11 +92,11 @@ public class SoporteActivity extends ActionBarActivity {
         txtObservaciones.setText(soporte.getMembers().getObservaciones().getValue());
         lblEstado.setText(lblEstado.getText()+" "+soporte.getMembers().getEstado().getValue().getTitle());
         //llenar la lista
-        lblIDComputadora.setText(lblIDComputadora.getText()+": "+soporte.getMembers().getComputadora().getValue().getTitle());
+        txtIpComputadora.setText(soporte.getMembers().getComputadora().getValue().getTitle());
         if(soporte.getMembers().getTecnico().getValue()!=null)
-            lblTecnico.setText(lblTecnico.getText()+": "+soporte.getMembers().getTecnico().getValue().getTitle());
+            txtIpComputadora.setText(soporte.getMembers().getTecnico().getValue().getTitle());
         else
-            lblTecnico.setText(lblTecnico.getText()+": SIN ASIGNAR");
+            txtIpComputadora.setText("SIN ASIGNAR");
 
         dtFecha.setText(soporte.getMembers().getFecha().getValue());
 
