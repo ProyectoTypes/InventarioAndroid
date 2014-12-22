@@ -99,26 +99,26 @@ public class ListaSoporteActivity extends ActionBarActivity {
         //Abrir elementos de la lista
         //lstSoportes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-         //   @Override
-           // public void onItemClick(AdapterView<?> parent, final View view,
-             //                       int position, final long id) {
-          //      final String item = (String) parent.getItemAtPosition(position);
+          //  @Override
+            //public void onItemClick(AdapterView<?> parent, final View view,
+              //                      int position, final long id) {
+                //final String item = (String) parent.getItemAtPosition(position);
 
-            //    Log.v("nombre",soportes.getResult().getValue().get(position).getTitle());
-              //  Log.v("link",soportes.getResult().getValue().get(position).getHref());
+                //Log.v("nombre",soportes.getResult().getValue().get(position).getTitle());
+                //Log.v("link",soportes.getResult().getValue().get(position).getHref());
 
-               // String url = soportes.getResult().getValue().get(position).getHref();
+                //String url = soportes.getResult().getValue().get(position).getHref();
 
                 //Intent newIntent = new Intent("android.intent.action.SOPORTE");
                 //newIntent.putExtra("user",user);
                 //newIntent.putExtra("pass",pass);
                 //newIntent.putExtra("url",url);
 
-               // startActivity(newIntent);
+                //startActivity(newIntent);
 
 
-            //}
-       // });
+//            }
+  //      });
 
     }
 

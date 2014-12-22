@@ -68,34 +68,6 @@ public class ListaComputadoraActivity extends ActionBarActivity {
 
             }
         }
-        //llenar la lista
-        final StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(),
-                android.R.layout.simple_list_item_1, list);
-        lstComputadoras.setAdapter(adapter);
-        //Abrir elementos de la lista
-        lstComputadoras.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view,
-                                    int position, final long id) {
-                final String item = (String) parent.getItemAtPosition(position);
-
-                //Log.v("nombre", computadoras.getResult().getValue().get(position).getTitle());
-                //Log.v("link",computadoras.getResult().getValue().get(position).getHref());
-
-                String url = computadoras.getResult().getValue().get(position).getHref();
-
-                Intent newIntent = new Intent("android.intent.action.COMPUTADORA");
-                newIntent.putExtra("user",user);
-                newIntent.putExtra("pass",pass);
-                newIntent.putExtra("url",url);
-
-                startActivity(newIntent);
-
-
-            }
-        });
-
     }
 
     private class listAllComputadoraThread extends AsyncTask<Void, Void, Soportes> {
