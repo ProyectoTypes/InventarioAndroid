@@ -92,7 +92,24 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".actividades.sector.BuscarSectorActivity"
+            android:label="@string/title_activity_buscar_sector" >
+            <intent-filter>
+                <action android:name="android.intent.action.BUSCAR_SECTOR" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".actividades.sector.ModificarSectorActivity"
+            android:label="@string/title_activity_modificar_sector" >
+            <intent-filter>
+                <action android:name="android.intent.action.MODIFICAR_SECTOR" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
