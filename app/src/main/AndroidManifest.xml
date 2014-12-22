@@ -40,8 +40,7 @@
             android:name=".actividades.soporte.SoporteActivity"
             android:label="@string/title_activity_soporte"
             android:screenOrientation="portrait" >
-
-        <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.SOPORTE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -80,6 +79,15 @@
             android:label="@string/title_activity_lista_soporte" >
             <intent-filter>
                 <action android:name="android.intent.action.LISTAR_SOPORTES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".actividades.computadora.ListaComputadoraActivity"
+            android:label="@string/title_activity_lista_computadora" >
+            <intent-filter>
+                <action android:name="android.intent.action.LISTA_COMPUTADORA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
