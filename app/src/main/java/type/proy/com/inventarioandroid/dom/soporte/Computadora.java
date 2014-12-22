@@ -41,7 +41,7 @@ public class Computadora {
         public Dato getTecnico() {
             return tecnico;
         }
-
+        
         public void setTecnico(Dato tecnico) {
             this.tecnico = tecnico;
         }
